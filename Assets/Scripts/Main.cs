@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing.dll;
+//using System.Drawing;
 
 public class Main : MonoBehaviour {
 
@@ -12,8 +12,8 @@ public class Main : MonoBehaviour {
 	public class Granny
 	{
 		//Fields for granny
-		list<int> inventory = new list<int>();
-		Rectangle hitBox = new Rectangle();
+		//list<int> inventory = new list<int>();
+		//Rectangle hitBox = new Rectangle();
 		int health;
 		int attack;
 
@@ -45,7 +45,7 @@ public class Main : MonoBehaviour {
 		//Fields for enemies
 		public int health;
 		public int attack;
-		Rectangle hitBox = new Rectangle();
+		//Rectangle hitBox = new Rectangle();
 
 		//Methods
 		//Find Granny method
@@ -111,7 +111,7 @@ public class Main : MonoBehaviour {
 	void Start () 
 	{
 		gameState curGameState;
-
+		/*
 		curGameState = gameState.main;
 
 		if (curGameState = gameState.main) 
@@ -133,6 +133,8 @@ public class Main : MonoBehaviour {
 		else if (curGameState = gameState.shop) 
 		{
 		}
+
+		*/
 
 
 	}
