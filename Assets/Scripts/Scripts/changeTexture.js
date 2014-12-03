@@ -7,10 +7,15 @@ function Start ()
 
 function Update () 
 {
-	var texture: Texture = Resources.Load("GrannyAttack");
+	var attack: Texture = Resources.Load("GrannyAttack");
+	var idle: Texture = Resources.Load("Granny");
 	
-	if (Input.GetKey("f"))
+	if (Input.GetKeyDown("j"))
 	{
-		renderer.material.mainTexture = texture;
+		renderer.material.mainTexture = attack;
+	}
+	if (Input.GetKeyUp("j"))
+	{
+		renderer.material.mainTexture = idle;
 	}
 }
