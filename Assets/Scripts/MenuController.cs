@@ -7,6 +7,7 @@ public class MenuController : MonoBehaviour {
 	public bool isNG = false;
 	public bool isLoadGame = false;
 	public bool isCredits = false;
+	public bool isMainMenu = false;
 	// Use this for initialization
 	void Start () {
 	
@@ -14,6 +15,7 @@ public class MenuController : MonoBehaviour {
 
 	void OnMouseEnter(){
 		renderer.material.color = Color.red;
+
 	}
 
 	void OnMouseExit(){
@@ -25,7 +27,10 @@ public class MenuController : MonoBehaviour {
 			Application.Quit();
 		}
 		if (isNG == true) {
-		//	Application.loadedLevel("butt");
+			Application.LoadLevel("butt");
+		}
+		if (isCredits == true) {
+			Application.LoadLevel("credits");
 		}
 
 	}
