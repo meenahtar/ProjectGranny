@@ -15,6 +15,7 @@ public class MenuController : MonoBehaviour {
 
 	void OnMouseEnter(){
 		renderer.material.color = Color.red;
+		//GUIText.Color = Color.red;
 
 	}
 
@@ -31,6 +32,9 @@ public class MenuController : MonoBehaviour {
 		}
 		if (isCredits == true) {
 			Application.LoadLevel("credits");
+		}
+		if (isMainMenu == true) {
+			Application.LoadLevel("mainMenu");
 		}
 
 	}
