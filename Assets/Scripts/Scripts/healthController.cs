@@ -13,13 +13,14 @@ public class healthController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		controlHealth ();
+		guiText.text = "Health - " + Health;
 	}
 
-	void controlHealth(){
+	public void controlHealth(int damage){
 		//GUIText.text = ("Health - " + health);
 		//healthGUI = GameObject.Find ("displayHealth").GUIText;
-		guiText.text = "Health - " + Health;
+		Health = Health - damage;
+
 	}
 
 	public void takeDamage(int toTake)

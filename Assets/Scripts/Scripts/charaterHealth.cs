@@ -5,7 +5,6 @@ public class charaterHealth : MonoBehaviour {
 
 	GameObject healthGUI;
 
-
 	// Use this for initialization
 	void Start () 
 	{
@@ -19,13 +18,12 @@ public class charaterHealth : MonoBehaviour {
 
 	}
 
-
-	void collision(Collision2D coll)
+	void OnCollisionEnter(Collision coll)
 	{
-		if (coll.gameObject.tag == "Enemy") 
-		{
-
-			healthGUI.GetComponent<healthController>().Health -= 1;
-		}
+		//if (coll.gameObject.tag == "Enemy") 
+		//{
+			//transform.position.y += 1;
+			healthGUI.GetComponent<healthController>().takeDamage(1);
+		//}
 	}
 }
