@@ -38,3 +38,7 @@ function Update () {
 	}
 	
 }
+
+function OnCollisionEnter () {
+	transform.position.y += 1;
+}

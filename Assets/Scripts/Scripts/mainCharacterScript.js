@@ -16,9 +16,5 @@ function Update () {
 	{
 		transform.localScale.x = Xscale;
 	}
-	if (Input.GetKey("f"))
-	{
-		renderer.material.SetTexture("GrannyAttack", texture);
-	}
 
 }
