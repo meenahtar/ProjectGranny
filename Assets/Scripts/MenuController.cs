@@ -11,11 +11,18 @@ public class MenuController : MonoBehaviour {
 	public bool isMenuBox = false;
 	public bool isPauseObj = false;
 	public bool showPause = false;
+	public bool isTestShop = false;
 	public int state = 0; //Game state control, 0 - main menu, 1 - level1, 2 - level2, 3 - level3, 4 - level4, 5 - credit screen, 6 - death screen, 7 - store
 	public bool isPaused = false;
+	//public GUIStyle textScale;
+	//public GameObject NGText = GameObject.Find("New Game");
 	// Use this for initialization
 	void Start () {
 		//print (Application.loadedLevel);
+		//NGText.GUIText.fontsize = 66;
+		//NGText.guiText.fontSize = 55;
+
+		//print (Screen.height + Screen.width);
 	}
 
 	void OnMouseEnter(){
@@ -47,6 +54,9 @@ public class MenuController : MonoBehaviour {
 		if (isMainMenu == true) {
 
 			Application.LoadLevel("mainMenu");
+		}
+		if (isTestShop == true) {
+			Application.LoadLevel("shop");
 		}
 
 	}
