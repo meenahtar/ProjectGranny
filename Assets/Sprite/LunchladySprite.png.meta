@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1951f1082e549f845be353e31cd2f8e9
+guid: 7e9e519af4c7a8748b329fca485e9392
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -42,43 +42,53 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: OrderlySprite_0
+    - name: LunchladySprite_0
       rect:
         serializedVersion: 2
-        x: 43
-        y: 0
-        width: 69
-        height: 111
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: OrderlySprite_1
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 69
-        height: 111
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: OrderlySprite_2
-      rect:
-        serializedVersion: 2
-        x: 279
+        x: 5
         y: 0
         width: 67
-        height: 111
+        height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: OrderlySprite_3
+    - name: LunchladySprite_1
       rect:
         serializedVersion: 2
-        x: 356
+        x: 116
         y: 0
-        width: 107
-        height: 111
+        width: 63
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LunchladySprite_2
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 0
+        width: 65
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LunchladySprite_3
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 0
+        width: 102
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LunchladySprite_4
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 0
+        width: 82
+        height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

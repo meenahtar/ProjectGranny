@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1951f1082e549f845be353e31cd2f8e9
+guid: bff8c399887e49b468eb4e529cf6ced7
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -42,43 +42,43 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: OrderlySprite_0
+    - name: MeatMonsterSprite_0
       rect:
         serializedVersion: 2
-        x: 43
+        x: 5
         y: 0
-        width: 69
-        height: 111
+        width: 155
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: OrderlySprite_1
+    - name: MeatMonsterSprite_1
       rect:
         serializedVersion: 2
-        x: 160
+        x: 174
         y: 0
-        width: 69
-        height: 111
+        width: 144
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: OrderlySprite_2
+    - name: MeatMonsterSprite_2
       rect:
         serializedVersion: 2
-        x: 279
+        x: 332
         y: 0
-        width: 67
-        height: 111
+        width: 155
+        height: 147
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: OrderlySprite_3
+    - name: MeatMonsterSprite_3
       rect:
         serializedVersion: 2
-        x: 356
+        x: 496
         y: 0
-        width: 107
-        height: 111
+        width: 155
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

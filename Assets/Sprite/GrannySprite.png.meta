@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1951f1082e549f845be353e31cd2f8e9
+guid: 56ce1d55f09229d41bddb42bd282dd37
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -42,43 +42,53 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: OrderlySprite_0
+    - name: GrannySprite_0
       rect:
         serializedVersion: 2
-        x: 43
+        x: 4
         y: 0
-        width: 69
-        height: 111
+        width: 71
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: OrderlySprite_1
+    - name: GrannySprite_1
       rect:
         serializedVersion: 2
-        x: 160
+        x: 216
         y: 0
-        width: 69
-        height: 111
+        width: 71
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: OrderlySprite_2
+    - name: GrannySprite_2
       rect:
         serializedVersion: 2
-        x: 279
-        y: 0
-        width: 67
-        height: 111
+        x: 427
+        y: 4
+        width: 100
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: OrderlySprite_3
+    - name: GrannySprite_3
       rect:
         serializedVersion: 2
-        x: 356
+        x: 640
         y: 0
-        width: 107
-        height: 111
+        width: 203
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GrannySprite_4
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 0
+        width: 71
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

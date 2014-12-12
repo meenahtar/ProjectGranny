@@ -20,7 +20,7 @@ public class Granny : MonoBehaviour {
 	float attackStartTime;
 	float attackDuration;
 	
-	int attackDamage;
+	public int attackDamage;
 	int rangeDamage;
 
 	// Use this for initialization
@@ -70,14 +70,14 @@ public class Granny : MonoBehaviour {
 		} else if (recoilStarted == true) {
 			if (collisionEvent.gameObject.transform.position.x > transform.position.x)
 			{
-				if(transform.position.x > GameObject.Find("Left Wall").transform.position.x + 2.0f)
+				if(transform.position.x > GameObject.Find("Left Wall").transform.position.x + 2.5f)
 				{
 					transform.position = new Vector3(transform.position.x - 0.15f, transform.position.y, transform.position.z);
 				}
 			}
 			else if (collisionEvent.gameObject.transform.position.x < transform.position.x)
 			{
-				if(transform.position.x < GameObject.Find("Right Wall").transform.position.x - 2.0f)
+				if(transform.position.x < GameObject.Find("Right Wall").transform.position.x - 2.5f)
 				{
 					transform.position = new Vector3(transform.position.x + 0.15f, transform.position.y, transform.position.z);
 				}
@@ -109,7 +109,15 @@ public class Granny : MonoBehaviour {
 			//enemy takes hit
 			attackHit = true;
 			//damage
-			coll.gameObject.GetComponent<Enemy>().takeDamage (attackDamage);
+			if(coll.gameObject.CompareTag("Enemy"))
+			{
+				coll.gameObject.GetComponent<Enemy>().takeDamage (attackDamage);
+			}
+			else if(coll.gameObject.CompareTag("Boss"))
+			{
+				coll.gameObject.GetComponent<Boss>().takeDamage (attackDamage);
+			}
+
 		}
 	}
 
