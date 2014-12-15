@@ -34,7 +34,7 @@ public class MenuController : MonoBehaviour {
 		}
 		if (isNG == true) {
 
-			Application.LoadLevel("butt");
+			Application.LoadLevel("level1");
 		}
 		if (isCredits == true) {
 

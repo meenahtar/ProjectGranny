@@ -79,7 +79,7 @@ public class LunchLady : MonoBehaviour {
 		if (health <= 0) 
 		{
 			print("dead");
-			Application.LoadLevel("SecurityLevel");
+			Application.LoadLevel("level3");
 		}
 		
 		if ((Mathf.Abs(transform.position.x - Granny.transform.position.x) <= 5f) || sawGranny)
