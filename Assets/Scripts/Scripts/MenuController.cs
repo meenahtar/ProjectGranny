@@ -18,21 +18,10 @@ public class MenuController : MonoBehaviour {
 	//public GameObject NGText = GameObject.Find("New Game");
 	// Use this for initialization
 	void Start () {
-		//print (Application.loadedLevel);
-		//NGText.GUIText.fontsize = 66;
-		//NGText.guiText.fontSize = 55;
-
-		//print (Screen.height + Screen.width);
 	}
 
 	void OnMouseEnter(){
 		renderer.material.color = Color.red;
-		//GUIText.Color = Color.red;
-
-		//if (isMenuBox == true) {
-		//	renderer.material.color = Color.red;
-		//}
-
 	}
 
 	void OnMouseExit(){
@@ -97,6 +86,7 @@ public class MenuController : MonoBehaviour {
 		}
 		if (isPaused == true) {
 			Time.timeScale = 1;
+			Time.fixedDeltaTime = 1;
 			//GameObject.Find("Main Camera").GetComponent(MouseLook).enabled = true;
 			//GameObject.Find("First Person Controller").GetComponent(MouseLook).enabled = true;
 			showPause = false;

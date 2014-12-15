@@ -3,10 +3,6 @@ using System.Collections;
 
 public class shop : MonoBehaviour {
 
-	public bool hasItem1 = false;
-	public bool hasItem2 = false;
-	public bool hasItem3 = false;
-	public bool hasItem4 = false;
 	public bool item1Box = false;
 	public bool item2Box = false;
 	public bool item3Box = false;
@@ -15,24 +11,35 @@ public class shop : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
+		//For testing, disable for release!!!
+		PlayerPrefs.SetInt ("GrannyHasItem1", 0);
+		PlayerPrefs.SetInt ("GrannyHasItem2", 0);
+		PlayerPrefs.SetInt ("GrannyHasItem3", 0);
+		PlayerPrefs.SetInt ("GrannyHasItem4", 0);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (hasItem1 == true) {
+		if(PlayerPrefs.GetInt("GrannyHasItem1") == 1){
 			markOff();
 		}
-		if(hasItem2 == true){
+		if(PlayerPrefs.GetInt("GrannyHasItem2") == 1){
 			markOff();
 		}
-		if(hasItem3 == true){
+		if(PlayerPrefs.GetInt("GrannyHasItem3") == 1){
 			markOff();
 		}
-		if(hasItem4 == true){
+		if(PlayerPrefs.GetInt("GrannyHasItem4") == 1){
+			print("WHY");
 			markOff();
 		}
-		//print ("Has item 1 = " + hasItem1 + " Has item 2 = " + hasItem2 + " Has item 3 = " + hasItem3 + " Has item 4 = " + hasItem4);
+		/*
+		print ("Item 1 = " + PlayerPrefs.GetInt("GrannyHasItem1"));
+		print ("Item 2 = " + PlayerPrefs.GetInt("GrannyHasItem2"));
+		print ("Item 3 = " + PlayerPrefs.GetInt("GrannyHasItem3"));
+		print ("Item 4 = " + PlayerPrefs.GetInt("GrannyHasItem4"));
+		*/
 	}
 
 	void OnMouseEnter(){
@@ -45,25 +52,29 @@ public class shop : MonoBehaviour {
 
 	void OnMouseUp(){
 		if (item1Box == true) {
-			hasItem1 = true;
+			PlayerPrefs.SetInt("GrannyHasItem1",1);
 		}
 		if (item2Box == true) {
-			hasItem2 = true;
+			PlayerPrefs.SetInt("GrannyHasItem2",1);
 		}
 		if (item3Box == true) {
-			hasItem3 = true;
+			PlayerPrefs.SetInt("GrannyHasItem3",1);
 		}
 		if (item4Box == true) {
-			hasItem4 = true;
+			PlayerPrefs.SetInt("GrannyHasItem4",1);
 		}
 		if (isContinueBTN == true) {
-			Application.LoadLevel("mainMenu");
+			//print(PlayerPrefs.GetInt("lastLevel"));
+			PlayerPrefs.SetInt("lastLevel", PlayerPrefs.GetInt("lastLevel") + 1);
+			print(PlayerPrefs.GetInt("lastLevel"));
+			Application.LoadLevel(PlayerPrefs.GetInt("lastLevel"));
+			print(PlayerPrefs.GetInt("lastLevel"));
 		}
 
 		//print ("Has item 1 = " + hasItem1 + " Has item 2 = " + hasItem2 + " Has item 3 = " + hasItem3 + " Has item 4 = " + hasItem4);
 	}
 
 	void markOff(){
-		renderer.material.color = Color.green;
+		//renderer.material.color = Color.green;
 	}
 }

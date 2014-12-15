@@ -68,7 +68,10 @@ public class Boss : MonoBehaviour {
 		if (health == 0) 
 		{
 			print("dead");
-			Application.LoadLevel("lunchHall");
+			PlayerPrefs.SetInt("lastLevel",Application.loadedLevel);
+			print(PlayerPrefs.GetInt("lastLevel"));
+			Application.LoadLevel("shop");
+
 		}
 
 		if ((Mathf.Abs(transform.position.x - Granny.transform.position.x) <= 5f) || sawGranny)

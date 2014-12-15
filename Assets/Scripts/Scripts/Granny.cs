@@ -107,8 +107,11 @@ public class Granny : MonoBehaviour {
 
 		if (healthGUI.GetComponent<healthController>().Health <= 0) 
 		{
-			gameObject.SetActive(false);
+			//gameObject.SetActive(false);
 			//SWITCH LEVEL TO DEATH
+			PlayerPrefs.SetInt("lastLevel", Application.loadedLevel);
+			print(PlayerPrefs.GetInt("lastLevel"));
+			Application.LoadLevel("death");
 		}
 	}
 
