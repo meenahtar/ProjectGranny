@@ -19,9 +19,13 @@ public class Granny : MonoBehaviour {
 	bool attackStarted;
 	float attackStartTime;
 	float attackDuration;
+
+	bool rangeOnCooldown;
+	float rangeStartTime;
+	float rangeTimer;
 	
 	public int attackDamage;
-	int rangeDamage;
+	public int rangeDamage;
 
 	// Use this for initialization
 	void Start () 
@@ -39,7 +43,11 @@ public class Granny : MonoBehaviour {
 		attackHit = false;
 		attackStarted = false;
 
-		rangeDamage = 15;
+		rangeOnCooldown = false;
+		rangeTimer = 0.01f;
+		//normally 2.0f
+
+		rangeDamage = 25;
 	}
 	
 	// Update is called once per frame
@@ -52,6 +60,19 @@ public class Granny : MonoBehaviour {
 			attackStarted = true;
 			attackStartTime = Time.time;
 			graphics.renderer.material.mainTexture = attack;
+		}
+
+		//range
+		if (Input.GetKeyDown ("k") && rangeOnCooldown == false) 
+		{
+			Instantiate(Resources.Load("CBag"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			rangeOnCooldown = true;
+			rangeStartTime = Time.time;
+		}
+
+		if (Time.time > rangeStartTime + rangeTimer) 
+		{
+			rangeOnCooldown = false;
 		}
 
 		if (Time.time > attackStartTime + attackDuration)
@@ -93,7 +114,7 @@ public class Granny : MonoBehaviour {
 
 	void OnCollisionEnter(Collision coll)
 	{
-		if (attackDown == false) {
+		if ((attackDown == false) && (!coll.gameObject.CompareTag("CBag"))) {
 			collisionEvent = coll;
 
 			healthGUI.GetComponent<healthController> ().takeDamage (5);
