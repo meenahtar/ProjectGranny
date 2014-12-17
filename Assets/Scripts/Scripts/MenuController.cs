@@ -25,7 +25,7 @@ public class MenuController : MonoBehaviour {
 	}
 
 	void OnMouseExit(){
-		renderer.material.color = Color.white;
+		renderer.material.color = Color.black;
 	}
 
 	void OnMouseUp(){

@@ -24,7 +24,7 @@ public class deathScreen : MonoBehaviour {
 	}
 	
 	void OnMouseExit(){
-		renderer.material.color = Color.white;
+		renderer.material.color = Color.black;
 	}
 	
 	void OnMouseUp(){
