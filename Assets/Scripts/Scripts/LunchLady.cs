@@ -25,6 +25,8 @@ public class LunchLady : MonoBehaviour {
 	bool sawGranny;
 	
 	Collision collisionEvent;
+
+	public bool isBossDead;
 	
 	//For boss attack
 	bool attackStarted;
@@ -69,6 +71,8 @@ public class LunchLady : MonoBehaviour {
 		seekDone = false;
 
 		facingRight = false;
+
+		isBossDead = false;
 	}
 	
 	// Update is called once per frame
@@ -77,8 +81,12 @@ public class LunchLady : MonoBehaviour {
 		//Death check
 		if (health <= 0) 
 		{
-			print("dead");
-			Application.LoadLevel("level3");
+			//print("dead");
+			PlayerPrefs.SetInt("lastLevel",Application.loadedLevel);
+			isBossDead = true;
+			gameObject.SetActive(false);
+			//print(PlayerPrefs.GetInt("lastLevel"));
+			//Application.LoadLevel("shop");
 		}
 		
 		if ((Mathf.Abs(transform.position.x - Granny.transform.position.x) <= 10f) || sawGranny)

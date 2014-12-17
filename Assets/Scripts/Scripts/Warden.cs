@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Boss : MonoBehaviour {
+public class Warden : MonoBehaviour {
 
 	float startXPos;
 	float xScale;
@@ -9,32 +9,41 @@ public class Boss : MonoBehaviour {
 	
 	public int health;
 	int attackDamage;
-	int rangeDamage;
+	public int rangeDamage;
 	
 	public bool attack;
 	
 	bool attackHit;
-
-
+	
+	
 	
 	bool recoilStarted;
 	float recoilStartTime;
 	
 	GameObject Granny;
+	
 	bool sawGranny;
 	
 	Collision collisionEvent;
 
 	public bool isBossDead;
-
+	
 	//For boss attack
 	bool attackStarted;
 	bool seekStarted;
 	float seekStartTime;
-	float attackDuration;
-	float attackStartTime;
+	public float attackDuration;
+	public float attackStartTime;
 	float timeBetween;
 	public bool seekDone;
+	public bool shooting;
+
+	public bool isMelee;
+	
+	public bool facingRight;
+	
+	
+	
 	
 	//Variable to be changed for different enemies
 	public float distance;
@@ -45,7 +54,7 @@ public class Boss : MonoBehaviour {
 		startXPos = transform.position.x;
 		xScale = transform.localScale.x;
 		patrolActive = true;
-
+		
 		attackDamage = 5;
 		rangeDamage = 5;
 		
@@ -53,20 +62,24 @@ public class Boss : MonoBehaviour {
 		sawGranny = false;
 		
 		attackDuration = 1.0f;
-		timeBetween = 20.0f;
+		timeBetween = 3.0f;
 		attackHit = false;
 		attackStarted = false;
+		
+		attackStartTime = 0;
 		
 		recoilStarted = false;
 		
 		attack = false;
 		seekDone = false;
+		
+		facingRight = false;
 		isBossDead = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 		//Death check
 		if (health <= 0) 
 		{
@@ -76,10 +89,9 @@ public class Boss : MonoBehaviour {
 			gameObject.SetActive(false);
 			//print(PlayerPrefs.GetInt("lastLevel"));
 			//Application.LoadLevel("shop");
-
 		}
-
-		if ((Mathf.Abs(transform.position.x - Granny.transform.position.x) <= 5f) || sawGranny)
+		
+		if ((Mathf.Abs(transform.position.x - Granny.transform.position.x) <= 10f) || sawGranny)
 		{
 			if (sawGranny == false)
 			{
@@ -88,38 +100,57 @@ public class Boss : MonoBehaviour {
 				seekStartTime = Time.time;
 			}
 			//Boss attack main method
-			if (Time.time < (seekStartTime + 0.01f))
+			if (Mathf.Abs(transform.position.x - Granny.transform.position.x) <= 2.5f && !attackStarted) //MELEE ----------------------
 			{
-				Seek();
+				attack = true;
+				isMelee = true;
 			}
 			else
 			{
-				seekDone = true;
-				if(attackStarted == false)
+				attack = false;
+				if (Mathf.Abs(transform.position.x - Granny.transform.position.x) <= 7.0f)//RANGED ------------------------------------
 				{
-					attackStarted = true;
-					attackStartTime = Time.time;
-					attack = true;
-					Instantiate(Resources.Load("Minion"), new Vector3(66.0f, 1.041055f, 0.0f), Quaternion.identity);
-					Instantiate(Resources.Load("Minion"), new Vector3(67.0f, 1.041055f, 0.0f), Quaternion.identity);
+					if(attackStarted == false)
+					{
+						shooting = true;
+						attackStarted = true;
+						attackStartTime = Time.time;
+						attack = true;
+						isMelee = false;
+						Instantiate(Resources.Load("Tazer"), new Vector3(transform.position.x - 1.0f, transform.position.y + 0.575f, transform.position.z), Quaternion.identity);
+					}
+					else if(Time.time > (attackStartTime + attackDuration + 1.0f))
+					{
+						shooting = false;
+						attack = false;
+						seekDone = false;
+						transform.position = new Vector3(transform.position.x - .01f, transform.position.y, transform.position.z);
+					}
+					
+					if (Time.time > (attackStartTime + attackDuration + timeBetween))
+					{
+						attackStarted = false;
+					}
+				}
+				else if (!attackStarted)
+				{
+					Seek ();
+				}
+			}
 
-				}
-				else if(Time.time > (attackStartTime + attackDuration))
-				{
-					attack = false;
-					seekDone = false;
-					transform.position = new Vector3(transform.position.x - .01f, transform.position.y, transform.position.z);
-				}
-
-				if (Time.time > (attackStartTime + attackDuration + timeBetween))
-				{
-					attackStarted = false;
-				}
+			if (!shooting)
+			{
+				Seek();
 			}
 		}
 		else
 		{
 			Patrol();
+		}
+		
+		if (health <= 0) 
+		{
+			gameObject.SetActive(false);
 		}
 		
 		//recoil
@@ -137,9 +168,9 @@ public class Boss : MonoBehaviour {
 				transform.position = new Vector3(transform.position.x + 0.15f, transform.position.y, transform.position.z);
 			}
 		}
-
-	
-
+		
+		
+		
 	}
 	
 	void Patrol () {
@@ -184,7 +215,7 @@ public class Boss : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter (Collision coll) {
-		if (coll.gameObject.GetComponent<Granny> ().attackDown == true) 
+		if (coll.gameObject.GetComponent<Granny> ().attackDown == true && (!coll.gameObject.CompareTag("Tazer"))) 
 		{
 			collisionEvent = coll;
 			
@@ -196,14 +227,14 @@ public class Boss : MonoBehaviour {
 				recoilStartTime = Time.time;
 				//set 50% alpha
 				renderer.material.color = new Color (renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, .5f);
-
-
-
+				
+				
+				
 				//this is a fix not a solution
 				//health = health - coll.gameObject.GetComponent<Granny>().attackDamage;
-
-
-
+				
+				
+				
 			}
 			else if (attackHit == false) 
 			{
@@ -220,4 +251,3 @@ public class Boss : MonoBehaviour {
 		health = health - toTake;
 	}
 }
-

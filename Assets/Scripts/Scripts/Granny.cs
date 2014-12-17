@@ -74,7 +74,7 @@ public class Granny : MonoBehaviour {
 		//range
 		if (Input.GetKeyDown ("k") && rangeOnCooldown == false) 
 		{
-			Instantiate(Resources.Load("CBag"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("CBag"), new Vector3(transform.position.x, transform.position.y+.9f, transform.position.z), Quaternion.identity);
 			rangeOnCooldown = true;
 			rangeStartTime = Time.time;
 			isThrowing = true;
@@ -125,7 +125,7 @@ public class Granny : MonoBehaviour {
 			//gameObject.SetActive(false);
 			//SWITCH LEVEL TO DEATH
 			PlayerPrefs.SetInt("lastLevel", Application.loadedLevel);
-			print(PlayerPrefs.GetInt("lastLevel"));
+			//print(PlayerPrefs.GetInt("lastLevel"));
 			Application.LoadLevel("death");
 		}
 	}

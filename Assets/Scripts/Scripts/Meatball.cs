@@ -23,13 +23,9 @@ public class Meatball : MonoBehaviour {
 			transform.position = new Vector3 (transform.position.x - .15f, transform.position.y - .03f, transform.position.z);
 			if(transform.position.y <= -0.7)
 			{
-				Instantiate(Resources.Load("Minion"), new Vector3(transform.position.x, transform.position.y + .7F, transform.position.z), Quaternion.identity);
+				Instantiate(Resources.Load("MeatMinion"), new Vector3(transform.position.x, 1.041055f, transform.position.z), Quaternion.identity);
 				gameObject.SetActive(false);
 			}
 		}
 	}
-
-
-
-
 }

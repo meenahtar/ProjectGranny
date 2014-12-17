@@ -41,5 +41,10 @@ public class CBag : MonoBehaviour {
 			coll.gameObject.GetComponent<LunchLady>().takeDamage (Granny.GetComponent<Granny>().rangeDamage);
 			gameObject.SetActive(false);
 		}
+		else if(coll.gameObject.CompareTag("Warden"))
+		{
+			coll.gameObject.GetComponent<Warden>().takeDamage (Granny.GetComponent<Granny>().rangeDamage);
+			gameObject.SetActive(false);
+		}
 	}
 }
