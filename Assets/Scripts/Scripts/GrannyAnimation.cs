@@ -31,7 +31,7 @@ public class GrannyAnimation : MonoBehaviour {
 			if (granny.GetComponent<Granny> ().attackDown == true) {
 				animationCase = 2;
 			}
-			else if (granny.GetComponent<granny> ().isThrowing == true) 
+			else if (granny.GetComponent<Granny> ().isThrowing == true) 
 			{
 				animationCase = 3;
 			}
@@ -73,10 +73,10 @@ public class GrannyAnimation : MonoBehaviour {
 				break;
 			//Range
 			case 3:
-				spriteRenderer.sprite = spritesAttack[0];
-				if(Time.time > (granny.GetComponent<Granny> ().attackStartTime + (granny.GetComponent<Granny> ().attackDuration / 6)))
+				spriteRenderer.sprite = spritesThrow[0];
+			if(Time.time > (granny.GetComponent<Granny> ().rangeStartTime + (granny.GetComponent<Granny> ().rangeAnimationDuration / 6)))
 					{
-						spriteRenderer.sprite = spritesAttack[1];
+						spriteRenderer.sprite = spritesThrow[1];
 					}
 				break;
 			//Idle if nothing else

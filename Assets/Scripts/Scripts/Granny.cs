@@ -21,10 +21,10 @@ public class Granny : MonoBehaviour {
 	float attackDuration;
 
 	bool rangeOnCooldown;
-	float rangeStartTime;
+	public float rangeStartTime;
 	float rangeTimer;
-	float rangeAnimationDuration;
-	bool isThrowing;
+	public float rangeAnimationDuration;
+	public bool isThrowing;
 	
 	public int attackDamage;
 	public int rangeDamage;
