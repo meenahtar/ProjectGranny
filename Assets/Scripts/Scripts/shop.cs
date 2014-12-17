@@ -53,15 +53,19 @@ public class shop : MonoBehaviour {
 	void OnMouseUp(){
 		if (item1Box == true) {
 			PlayerPrefs.SetInt("GrannyHasItem1",1);
+			GameObject.Find("Item 1 Box").SetActive(false);
 		}
 		if (item2Box == true) {
 			PlayerPrefs.SetInt("GrannyHasItem2",1);
+			GameObject.Find("Item 2 Box").SetActive(false);
 		}
 		if (item3Box == true) {
 			PlayerPrefs.SetInt("GrannyHasItem3",1);
+			GameObject.Find("Item 3 Box").SetActive(false);
 		}
 		if (item4Box == true) {
 			PlayerPrefs.SetInt("GrannyHasItem4",1);
+			GameObject.Find("Item 4 Box").SetActive(false);
 		}
 		if (isContinueBTN == true) {
 			//print(PlayerPrefs.GetInt("lastLevel"));
