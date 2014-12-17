@@ -45,52 +45,72 @@ TextureImporter:
     - name: GrannySprite_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 21
         y: 0
         width: 71
-        height: 110
+        height: 111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: GrannySprite_1
       rect:
         serializedVersion: 2
-        x: 216
+        x: 233
         y: 0
         width: 71
-        height: 110
+        height: 111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: GrannySprite_2
       rect:
         serializedVersion: 2
-        x: 427
+        x: 445
         y: 4
         width: 100
-        height: 106
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: GrannySprite_3
       rect:
         serializedVersion: 2
-        x: 640
+        x: 656
         y: 0
-        width: 203
-        height: 110
+        width: 187
+        height: 111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: GrannySprite_4
       rect:
         serializedVersion: 2
-        x: 852
+        x: 868
         y: 0
-        width: 71
-        height: 110
+        width: 72
+        height: 111
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GrannySprite_5
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 88
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GrannySprite_6
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 0
+        width: 73
+        height: 111
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

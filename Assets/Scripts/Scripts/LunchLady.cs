@@ -21,7 +21,6 @@ public class LunchLady : MonoBehaviour {
 	float recoilStartTime;
 	
 	GameObject Granny;
-	GameObject Meatball;
 
 	bool sawGranny;
 	
@@ -58,7 +57,7 @@ public class LunchLady : MonoBehaviour {
 		sawGranny = false;
 		
 		attackDuration = 1.0f;
-		timeBetween = 0.1f;
+		timeBetween = 10.0f;
 		attackHit = false;
 		attackStarted = false;
 
@@ -82,7 +81,7 @@ public class LunchLady : MonoBehaviour {
 			Application.LoadLevel("level3");
 		}
 		
-		if ((Mathf.Abs(transform.position.x - Granny.transform.position.x) <= 5f) || sawGranny)
+		if ((Mathf.Abs(transform.position.x - Granny.transform.position.x) <= 10f) || sawGranny)
 		{
 			if (sawGranny == false)
 			{
@@ -104,13 +103,7 @@ public class LunchLady : MonoBehaviour {
 					attackStartTime = Time.time;
 					attack = true;
 				    Instantiate(Resources.Load("Meatball"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-					Meatball = GameObject.Find ("Meatball");
-
-					if(Meatball.GetComponent<Meatball>().spawnMonster == true)
-					{
-						print("working");
-						Instantiate(Resources.Load("Minion"), new Vector3(Meatball.GetComponent<Meatball>().x, Meatball.GetComponent<Meatball>().y, transform.position.z), Quaternion.identity);
-					}
+			
 
 					/*
 					if(Time.time > (attackStartTime + (attackDuration / 2)))

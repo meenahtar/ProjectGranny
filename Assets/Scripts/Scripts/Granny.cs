@@ -23,6 +23,8 @@ public class Granny : MonoBehaviour {
 	bool rangeOnCooldown;
 	float rangeStartTime;
 	float rangeTimer;
+	float rangeAnimationDuration;
+	bool isThrowing;
 	
 	public int attackDamage;
 	public int rangeDamage;
@@ -30,6 +32,11 @@ public class Granny : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		PlayerPrefs.SetInt ("bingoBalls", 0);
+
+		//How to add
+		//PlayerPrefs.SetInt ("bingoBalls", PlayerPrefs.GetInt ("bingoBalls") + 1);
+
 		healthGUI = GameObject.Find ("displayHealth");
 		graphics = GameObject.Find ("Graphics");
 
@@ -46,6 +53,8 @@ public class Granny : MonoBehaviour {
 		rangeOnCooldown = false;
 		rangeTimer = 0.01f;
 		//normally 2.0f
+		isThrowing = false;
+		rangeAnimationDuration = 0.25f;
 
 		rangeDamage = 25;
 	}
@@ -68,6 +77,12 @@ public class Granny : MonoBehaviour {
 			Instantiate(Resources.Load("CBag"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 			rangeOnCooldown = true;
 			rangeStartTime = Time.time;
+			isThrowing = true;
+		}
+
+		if (Time.time > rangeStartTime + rangeAnimationDuration) 
+		{
+			isThrowing = false;
 		}
 
 		if (Time.time > rangeStartTime + rangeTimer) 
@@ -141,7 +156,10 @@ public class Granny : MonoBehaviour {
 			{
 				coll.gameObject.GetComponent<Boss>().takeDamage (attackDamage);
 			}
-
+			else if(coll.gameObject.CompareTag("LunchLady"))
+			{
+				coll.gameObject.GetComponent<LunchLady>().takeDamage (attackDamage);
+			}
 		}
 	}
 

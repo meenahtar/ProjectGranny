@@ -5,15 +5,11 @@ public class Meatball : MonoBehaviour {
 	
 	GameObject LunchLady;
 	bool facingRight;
-	public bool spawnMonster;
-	public float x;
-	public float y;
 	
 	// Use this for initialization
 	void Start () {
 		LunchLady = GameObject.Find ("LunchLady");
 		facingRight = LunchLady.GetComponent<LunchLady> ().facingRight;
-		spawnMonster = false;
 	}
 	
 	// Update is called once per frame
@@ -24,12 +20,10 @@ public class Meatball : MonoBehaviour {
 		} 
 		else
 		{
-			transform.position = new Vector3 (transform.position.x - .15f, transform.position.y - .06f, transform.position.z);
+			transform.position = new Vector3 (transform.position.x - .15f, transform.position.y - .03f, transform.position.z);
 			if(transform.position.y <= -0.7)
 			{
-				spawnMonster = true;
-				x = transform.position.x;
-				y = transform.position.y;
+				Instantiate(Resources.Load("Minion"), new Vector3(transform.position.x, transform.position.y + .7F, transform.position.z), Quaternion.identity);
 				gameObject.SetActive(false);
 			}
 		}
