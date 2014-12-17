@@ -82,6 +82,33 @@ public class LunchLady : MonoBehaviour {
 		if (health <= 0) 
 		{
 			//print("dead");
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+
 			PlayerPrefs.SetInt("lastLevel",Application.loadedLevel);
 			isBossDead = true;
 			gameObject.SetActive(false);

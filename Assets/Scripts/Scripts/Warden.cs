@@ -56,7 +56,7 @@ public class Warden : MonoBehaviour {
 		patrolActive = true;
 		
 		attackDamage = 5;
-		rangeDamage = 5;
+		rangeDamage = 20;
 		
 		Granny = GameObject.Find ("First Person Controller");
 		sawGranny = false;
@@ -84,6 +84,9 @@ public class Warden : MonoBehaviour {
 		if (health <= 0) 
 		{
 			//print("dead");
+			Instantiate(Resources.Load("Potal to your mom"), new Vector3(Granny.GetComponent<Granny>().transform.position.x+2.0f, Granny.GetComponent<Granny>().transform.position.y, Granny.GetComponent<Granny>().transform.position.z), Quaternion.identity);
+			Instantiate(Resources.Load("UnderGround"), new Vector3(Granny.GetComponent<Granny>().transform.position.x, Granny.GetComponent<Granny>().transform.position.y - 2.0f, Granny.GetComponent<Granny>().transform.position.z), Quaternion.identity);
+
 			PlayerPrefs.SetInt("lastLevel",Application.loadedLevel);
 			isBossDead = true;
 			gameObject.SetActive(false);
@@ -100,7 +103,7 @@ public class Warden : MonoBehaviour {
 				seekStartTime = Time.time;
 			}
 			//Boss attack main method
-			if (Mathf.Abs(transform.position.x - Granny.transform.position.x) <= 2.5f && !attackStarted) //MELEE ----------------------
+			if (Mathf.Abs(transform.position.x - Granny.transform.position.x) <= 2.5f) //MELEE ----------------------
 			{
 				attack = true;
 				isMelee = true;
@@ -129,7 +132,7 @@ public class Warden : MonoBehaviour {
 					
 					if (Time.time > (attackStartTime + attackDuration + timeBetween))
 					{
-						attackStarted = false;
+						//attackStarted = false;
 					}
 				}
 				else if (!attackStarted)
@@ -146,11 +149,6 @@ public class Warden : MonoBehaviour {
 		else
 		{
 			Patrol();
-		}
-		
-		if (health <= 0) 
-		{
-			gameObject.SetActive(false);
 		}
 		
 		//recoil

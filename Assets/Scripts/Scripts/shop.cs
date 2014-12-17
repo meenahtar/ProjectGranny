@@ -9,6 +9,8 @@ public class shop : MonoBehaviour {
 	public bool item4Box = false;
 	public bool isContinueBTN = false;
 
+	GameObject currency;
+
 	// Use this for initialization
 	void Start () {
 
@@ -17,21 +19,27 @@ public class shop : MonoBehaviour {
 		PlayerPrefs.SetInt ("GrannyHasItem2", 0);
 		PlayerPrefs.SetInt ("GrannyHasItem3", 0);
 		PlayerPrefs.SetInt ("GrannyHasItem4", 0);
+		print(PlayerPrefs.GetInt ("bingoBalls"));
+		currency = GameObject.Find ("Bingo Balls");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(PlayerPrefs.GetInt("GrannyHasItem1") == 1){
+			//GameObject.Find("Item 1 Box").renderer.material.color = Color.black;
 			markOff();
 		}
 		if(PlayerPrefs.GetInt("GrannyHasItem2") == 1){
+			//GameObject.Find("Item 2 Box").renderer.material.color = Color.black;
 			markOff();
 		}
 		if(PlayerPrefs.GetInt("GrannyHasItem3") == 1){
+			//GameObject.Find("Item 3 Box").renderer.material.color = Color.black;
 			markOff();
 		}
 		if(PlayerPrefs.GetInt("GrannyHasItem4") == 1){
-			print("WHY");
+			//GameObject.Find("Item 4 Box").renderer.material.color = Color.black;
+			//print("WHY");
 			markOff();
 		}
 		/*
@@ -40,6 +48,7 @@ public class shop : MonoBehaviour {
 		print ("Item 3 = " + PlayerPrefs.GetInt("GrannyHasItem3"));
 		print ("Item 4 = " + PlayerPrefs.GetInt("GrannyHasItem4"));
 		*/
+		currency.guiText.text = "BB: " + PlayerPrefs.GetInt ("bingoBalls");
 	}
 
 	void OnMouseEnter(){
@@ -52,20 +61,40 @@ public class shop : MonoBehaviour {
 
 	void OnMouseUp(){
 		if (item1Box == true) {
-			PlayerPrefs.SetInt("GrannyHasItem1",1);
-			GameObject.Find("Item 1 Box").SetActive(false);
+			if(PlayerPrefs.GetInt ("bingoBalls") >= 50)
+			{
+				PlayerPrefs.SetInt ("bingoBalls", PlayerPrefs.GetInt ("bingoBalls") - 50);
+				print(PlayerPrefs.GetInt ("bingoBalls"));
+				PlayerPrefs.SetInt("GrannyHasItem1",1);
+				GameObject.Find("Item 1 Box").SetActive(false);
+			}
 		}
 		if (item2Box == true) {
-			PlayerPrefs.SetInt("GrannyHasItem2",1);
-			GameObject.Find("Item 2 Box").SetActive(false);
+			if(PlayerPrefs.GetInt ("bingoBalls") >= 100)
+			{
+				PlayerPrefs.SetInt ("bingoBalls", PlayerPrefs.GetInt ("bingoBalls") - 100);
+				print(PlayerPrefs.GetInt ("bingoBalls"));
+				PlayerPrefs.SetInt("GrannyHasItem2",1);
+				GameObject.Find("Item 2 Box").SetActive(false);
+			}
 		}
 		if (item3Box == true) {
-			PlayerPrefs.SetInt("GrannyHasItem3",1);
-			GameObject.Find("Item 3 Box").SetActive(false);
+			if(PlayerPrefs.GetInt ("bingoBalls") >= 300)
+			{
+				PlayerPrefs.SetInt ("bingoBalls", PlayerPrefs.GetInt ("bingoBalls") - 300);
+				print(PlayerPrefs.GetInt ("bingoBalls"));
+				PlayerPrefs.SetInt("GrannyHasItem3",1);
+				GameObject.Find("Item 3 Box").SetActive(false);
+			}
 		}
 		if (item4Box == true) {
-			PlayerPrefs.SetInt("GrannyHasItem4",1);
-			GameObject.Find("Item 4 Box").SetActive(false);
+			if(PlayerPrefs.GetInt ("bingoBalls") >= 100)
+			{
+				PlayerPrefs.SetInt ("bingoBalls", PlayerPrefs.GetInt ("bingoBalls") - 100);
+				print(PlayerPrefs.GetInt ("bingoBalls"));
+				PlayerPrefs.SetInt("GrannyHasItem4",1);
+				GameObject.Find("Item 4 Box").SetActive(false);
+			}
 		}
 		if (isContinueBTN == true) {
 			//print(PlayerPrefs.GetInt("lastLevel"));

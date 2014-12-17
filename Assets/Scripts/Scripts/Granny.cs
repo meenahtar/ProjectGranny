@@ -28,6 +28,7 @@ public class Granny : MonoBehaviour {
 	
 	public int attackDamage;
 	public int rangeDamage;
+	bool hasHealthPotion;
 
 	// Use this for initialization
 	void Start () 
@@ -56,7 +57,30 @@ public class Granny : MonoBehaviour {
 		isThrowing = false;
 		rangeAnimationDuration = 0.25f;
 
+		hasHealthPotion = false;
+
 		rangeDamage = 25;
+		//Potion
+		if (PlayerPrefs.GetInt ("GrannyHasItem1") == 1) 
+		{
+			hasHealthPotion = true;
+		}
+		//Armor
+		if (PlayerPrefs.GetInt ("GrannyHasItem2") == 1) 
+		{
+			healthGUI.GetComponent<healthController> ().takeDamage (-50);
+		}
+		//Ranged attack
+		if (PlayerPrefs.GetInt ("GrannyHasItem3") == 1)
+		{
+			rangeDamage+=10;
+		}
+		//Melee attack
+		if (PlayerPrefs.GetInt ("GrannyHasItem4") == 1) 
+		{
+			attackDamage+=10;
+		}
+
 	}
 	
 	// Update is called once per frame
@@ -70,6 +94,13 @@ public class Granny : MonoBehaviour {
 			attackStartTime = Time.time;
 			graphics.renderer.material.mainTexture = attack;
 		}
+
+		if (Input.GetKeyDown("h"))
+		{
+			healthGUI.GetComponent<healthController> ().takeDamage (-50);
+			hasHealthPotion = false;
+		}
+
 
 		//range
 		if (Input.GetKeyDown ("k") && rangeOnCooldown == false) 
@@ -159,6 +190,10 @@ public class Granny : MonoBehaviour {
 			else if(coll.gameObject.CompareTag("LunchLady"))
 			{
 				coll.gameObject.GetComponent<LunchLady>().takeDamage (attackDamage);
+			}
+			else if(coll.gameObject.CompareTag("Warden"))
+			{
+				coll.gameObject.GetComponent<Warden>().takeDamage (attackDamage);
 			}
 		}
 	}

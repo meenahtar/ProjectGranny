@@ -74,6 +74,7 @@ public class Enemy : MonoBehaviour {
 
 		if (health <= 0) 
 		{
+			Instantiate(Resources.Load("BingoBall"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 			gameObject.SetActive(false);
 		}
 
